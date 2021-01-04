@@ -4,11 +4,11 @@ const port = 5000;
 const bodyParser = require("body-parser")
 const { User } = require("./models/Users")
 
-// application /x-www-from-urlencoded
+// application / x-www-from-urlencoded
 app.use(bodyParser.urlencoded({extended: true}));
 
-//application/ 
-app.use.apply(bodyParser.json())
+//application / json
+app.use(bodyParser.json())
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://bae:1234@boilerplate.72x4c.mongodb.net/<dbname>?retryWrites=true&w=majority', {
