@@ -1,6 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { loginUser } from "../../../_actions/user_action"
 
-function LoginPage() {
+function LoginPage(props) {
+    const dispatch = useDispatch();
 
     const [Email, setEmail] = useState("")
     const [Password, setPassword] = useState("")
@@ -14,7 +18,22 @@ function LoginPage() {
     }
 
     const onSubmitHandler = (event) => {
-        
+        event.preventDefault();
+
+        let body = {
+            email: Email,
+            password: Password
+        }
+
+        dispatch(loginUser(body))
+            .then(response => {
+                if (response.payload.loginSuccess) {
+                    props.history.push('/');
+                } else {
+                    alert('Error')
+                }
+            })
+
     }
 
 
