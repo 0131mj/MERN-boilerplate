@@ -4,7 +4,6 @@ const app = express();
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
 const { auth } = require('./middleware/auth');
-
 const { User } = require("./models/Users")
 
 const config = require('./config/key')
